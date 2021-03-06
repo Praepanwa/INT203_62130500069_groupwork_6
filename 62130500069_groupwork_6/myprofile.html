@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css'>
+  <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js'></script>
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div id="app" class="p-8">
+    <div class="container mt-5 d-flex justify-content-center">
+      <div class="card p-3">
+        <div class="d-flex align-items-center">
+          <div class="image"> <img v-bind:src="myprofilepic" class="rounded" width="100"> </div>
+          <div class="ml-3 w-100">
+            <form  @submit="checkForm" >
+              <p v-if="errors" class="text-red-500">
+                <b>Please correct the following error(s):</b>
+                <ul>
+                   <li v-for="error in errors" class="text-red-500">{{ error }}</li> 
+                </ul>
+            </p>
+              <div>
+                <label for="firstname" class="text-sm leading-7 text-gray-600">First Name</label>
+                <input type="text" id="firstname" v-model="formdata.firstname" name="firstname"
+                  class="bg-gray-100 rounded px-4 py-2 mb-4">
+              </div>
+              <div>
+                <label for="lastname" class="text-sm leading-7 text-gray-600">Last Name</label>
+                <input type="text" id="firstname" v-model="formdata.lastname" name="lastname"
+                  class="bg-gray-100 rounded px-4 py-2 mb-4">
+              </div>
+              <div>
+                <p>
+                  <label for="email" class="text-sm leading-7 text-gray-600">email </label>
+                </p>
+                <input type="text" id="email" v-model="formdata.email" name="email" class="bg-gray-100 rounded px-4 py-2 mb-4">
+              </div>
+
+
+              <!-- <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
+               <div class="d-flex flex-column"> <span class="articles">Articles</span> <span
+                   class="number1">{{article}}</span> </div>
+               <div class="d-flex flex-column"> <span class="followers">Followers</span> <span
+                   class="number2">{{follower}}</span> </div>
+               <div class="d-flex flex-column"> <span class="rating">Rating</span> <span
+                   class="number3">{{rating}}</span> </div>
+             </div> -->
+              <div class="button mt-2 d-flex flex-row align-items-center">
+                <input type="submit" value="Submit" class="btn btn-sm btn-outline-primary w-100" />
+              
+
+
+                <button class="btn btn-sm btn-primary w-100 ml-2 "><a v-bind:href="ig"
+                    class="text-white no-underline">Follow</a></button> </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- my main.js -->
+    <script src="profie.js"></script>
+    <script>app.mount("#app")</script>
+</body>
+
+</html>
